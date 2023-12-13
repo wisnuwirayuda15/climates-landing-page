@@ -4,7 +4,7 @@
 
 @layer base {
 	html {
-		@apply custom-scrollbar overflow-y-auto overflow-x-hidden scroll-smooth;
+		@apply custom-scrollbar scroll-smooth; /* overflow-y-auto overflow-x-hidden */
 	}
 
 	h1,
@@ -14,40 +14,44 @@
 	}
 
 	h1 {
-		@apply text-5xl;
+		@apply text-4xl lg:text-5xl;
 	}
 
 	h2 {
-		@apply text-3xl;
+		@apply text-2xl lg:text-3xl;
 	}
 
 	h3 {
-		@apply text-xl;
+		@apply text-lg lg:text-xl;
 	}
-/* 
-	* {
+
+	p {
+		@apply text-sm lg:text-base;
+	}
+
+	/* * {
 		@apply border border-red-300;
 	} */
-
+	* {
+		@apply transition-all;
+	}
 	main section {
-		@apply container px-28 mx-auto min-h-screen w-full grid place-items-center;
+		@apply container px-4 lg:px-12 py-32 lg:py-40 mx-auto h-full max-w-7xl grid grid-cols-1 place-items-center;
 	}
 
-  img {
-    @apply select-none;
-  }
+	img {
+		@apply select-none;
+	}
 }
 
 @layer components {
-	/* Hide scrollbar for Chrome, Safari and Opera */
 	.no-scrollbar::-webkit-scrollbar {
 		display: none;
 	}
 
-	/* Hide scrollbar for IE, Edge and Firefox */
 	.no-scrollbar {
-		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none;
+		scrollbar-width: none;
 	}
 
 	.custom-scrollbar {
@@ -56,6 +60,31 @@
 
 	.flex-center {
 		@apply flex justify-center items-center;
+	}
+
+	.glow-item-10 {
+		filter: drop-shadow(0 0 10px rgba(77, 108, 64, 1));
+	}
+	.glow-item-25 {
+		filter: drop-shadow(0 0 25px rgba(77, 108, 64, 1));
+	}
+	.glow-item-50 {
+		filter: drop-shadow(0 0 50px rgba(77, 108, 64, 1));
+	}
+	.glow-item-100 {
+		filter: drop-shadow(0 0 100px rgba(77, 108, 64, 1));
+	}
+	.glow-item-200 {
+		filter: drop-shadow(0 0 200px rgba(77, 108, 64, 1));
+	}
+	.glow-item-300 {
+		filter: drop-shadow(0 0 300px rgba(77, 108, 64, 1));
+	}
+	.glow-item-400 {
+		filter: drop-shadow(0 0 400px rgba(77, 108, 64, 1));
+	}
+	.glow-item-500 {
+		filter: drop-shadow(0 0 500px rgba(77, 108, 64, 1));
 	}
 
 	.radial-gradient {

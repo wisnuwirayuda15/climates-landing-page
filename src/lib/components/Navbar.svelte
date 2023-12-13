@@ -5,20 +5,28 @@
 	import Logo from '$lib/icon/logo-inline-text.png';
 	import Icon from '@iconify/svelte';
 	export let fixed: boolean = false;
-	export let dropdown: boolean = false;
+	export let hidden: boolean = false;
+	let dropdown: boolean = false;
+	let hamburger: boolean = false;
+	const closeDropdown = () => {
+		dropdown = false;
+	};
+	const toggleHamburger = () => {
+		hamburger = !hamburger;
+	};
+	const closeHamburger = () => {
+		hamburger = false;
+	};
 </script>
 
 <div
-	class="flex justify-center w-full transition-all bg-base-100 fixed {fixed && 'z-50 shadow-lg'}"
+	class="flex justify-center w-full bg-base-100 bg-opacity-50 fixed z-[9999] {fixed &&
+		'shadow-lg'} {hidden && !hamburger && '-translate-y-full'}"
 >
-	<nav class="navbar bg-base-100 px-10 transition-all {!fixed && 'py-5'}">
+	<nav class="navbar backdrop-blur-md px-5 lg:px-10 {!fixed && 'lg:py-5'}">
 		<div class="navbar-start">
 			<a href="/">
-				<img
-					src={Logo}
-					alt="climates logo"
-					class="{fixed ? 'w-28' : 'w-32'} h-auto transition-all"
-				/>
+				<img src={Logo} alt="climates logo" class="{fixed ? 'w-28' : 'w-32'} h-auto" />
 			</a>
 		</div>
 		<div class="navbar-center hidden lg:flex">
@@ -30,14 +38,15 @@
 						<button
 							class="{$page.url.pathname === '/' && 'active'} "
 							use:clickoutside
-							on:clickoutside={() => {
-								dropdown = false;
-							}}
+							on:clickoutside={closeDropdown}
 							on:click={() => {
 								dropdown = dropdown ? false : true;
 							}}
 						>
-							Home <Icon icon="tabler:chevron-down" class="text-lg transition-all duration-500 {dropdown && 'rotate-180'}" />
+							Home <Icon
+								icon="tabler:chevron-down"
+								class="text-lg duration-500 {dropdown && 'rotate-180'}"
+							/>
 						</button>
 					{/if}
 					{#if dropdown}
@@ -54,24 +63,77 @@
 					{/if}
 				</li>
 				<li>
-					<a href="/about" class="{$page.url.pathname === '/about' && 'active'} ">About Us</a>
+					<a
+						on:click={closeDropdown}
+						href="/about"
+						class="{$page.url.pathname === '/about' && 'active'} ">About Us</a
+					>
 				</li>
 				<li>
-					<a href="/works" class="{$page.url.pathname === '/works' && 'active'} ">Our Work</a>
-				</li>
-				<li>
-					<a href="/premium" class="{$page.url.pathname === '/premium' && 'active'} ">Premium</a>
+					<a
+						on:click={closeDropdown}
+						href="/premium"
+						class="{$page.url.pathname === '/premium' && 'active'} ">Premium</a
+					>
 				</li>
 			</ul>
 		</div>
 		<div class="navbar-end">
-			<div class="flex gap-3">
-				<button class="btn btn-primary btn-outline transition-all {fixed && 'btn-sm'}">Login</button
+			<div class="lg:hidden">
+				<button
+					class="btn btn-square btn-ghost"
+					use:clickoutside
+					on:click={toggleHamburger}
+					on:clickoutside={closeHamburger}
 				>
-				<button class="btn btn-primary transition-all {fixed && 'btn-sm'}">Register</button>
+					<Icon icon={hamburger ? 'tabler:x' : 'ci:hamburger-lg'} class="w-[70%] h-auto" />
+				</button>
+				{#if hamburger}
+					<div
+						transition:fade={{ duration: 100 }}
+						class="bg-base-100 z-50 w-56 p-3 absolute menu shadow-lg rounded-box right-4 top-[120%] font-bold"
+					>
+						<ul>
+							<li>
+								<a
+									on:click={closeHamburger}
+									href="/"
+									class="{$page.url.pathname === '/' && 'active'} "
+									>Home <span>
+										<Icon icon="charm:chevron-right" />
+									</span></a
+								>
+							</li>
+							<li>
+								<a
+									on:click={closeHamburger}
+									href="/about"
+									class="{$page.url.pathname === '/about' && 'active'} "
+									>About Us <span>
+										<Icon icon="charm:chevron-right" />
+									</span></a
+								>
+							</li>
+							<li>
+								<a
+									on:click={closeHamburger}
+									href="/premium"
+									class="{$page.url.pathname === '/premium' && 'active'} "
+									>Premium <span>
+										<Icon icon="charm:chevron-right" />
+									</span></a
+								>
+							</li>
+						</ul>
+					</div>
+				{/if}
+			</div>
+			<div class="gap-3 hidden lg:flex">
+				<button class="btn btn-primary btn-ghost {fixed && 'btn-sm'}">Login</button>
+				<button class="btn btn-primary {fixed && 'btn-sm'}">Register</button>
 			</div>
 		</div>
 	</nav>
 </div>
 
-<div class="pt-28"></div>
+<!-- <div class="pt-20"></div> -->

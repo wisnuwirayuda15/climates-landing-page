@@ -4,7 +4,10 @@ export default {
 	theme: {
 		fontFamily: {
 			inter: ['Inter', 'sans-serif']
-		}
+		},
+    transitionDuration: {
+      DEFAULT: '500ms'
+    }
 	},
 	plugins: [require('daisyui'), require('tailwind-scrollbar')({ nocompatible: true })],
 
