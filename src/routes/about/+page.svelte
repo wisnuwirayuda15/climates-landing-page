@@ -1,33 +1,39 @@
 <script lang="ts">
 	import PolarBear from '$lib/img/about-polar-bear.jpg';
 	import Mountain from '$lib/img/about-mountain.jpg';
-	import Wisnu from '$lib/img/team-wisnu.jpg';
-	import Wakhid from '$lib/img/team-wakhid.jpeg';
-	import Afif from '$lib/img/team-afif.jpeg';
-	import Bimo from '$lib/img/team-bimo.jpeg';
+	import Instagram from '$lib/img/instagram.svg';
+	import Linkedin from '$lib/img/linkedin.svg';
+	import Wisnu from '$lib/img/team-wisnu.png';
+	import Wakhid from '$lib/img/team-wakhid.png';
+	import Afif from '$lib/img/team-afif.png';
+	import Bimo from '$lib/img/team-bimo.png';
 
 	const teams = [
 		{
 			name: 'Putu Wisnu Wirayuda Putra',
 			ig: 'https://www.instagram.com/puutuuu_/',
+			linkedin: 'https://www.linkedin.com/in/wisnuwirayuda/',
 			role: 'Hacker',
 			photo: Wisnu
 		},
 		{
 			name: 'Afif Zaky Muhana',
 			ig: 'https://www.instagram.com/afifzaky/',
+			linkedin: 'https://www.linkedin.com/in/afifzakymuhana/',
 			role: 'Hustler',
 			photo: Afif
 		},
 		{
 			name: 'Bimo Agung Fahrizky',
 			ig: 'https://www.instagram.com/bimoagung_/',
+			linkedin: 'https://www.linkedin.com/in/bimoagungfahrizky/',
 			role: 'Handler',
 			photo: Bimo
 		},
 		{
-			name: 'Wakhid Yusuf S.W',
+			name: 'Wakhid Yusuf Sri Widodo',
 			ig: 'https://www.instagram.com/wakhidy.id/',
+			linkedin: 'https://www.linkedin.com/in/wakhid-yusuf-541914217/',
 			role: 'Hipster',
 			photo: Wakhid
 		}
@@ -106,24 +112,31 @@
 			class="mx-10 sm:mx-16 grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 lg:gap-5 gap-10 max-w-5xl mt-20 glow-item-300"
 		>
 			{#each teams as t}
-				<div class="card card-bordered bg-base-100 bg-opacity-70 w-full h-full shadow-md group">
+				<div
+					class="card bg-base-100 bg-opacity-70 w-full h-full lg:hover:shadow-md group select-none"
+				>
 					<figure>
-						<a href={t.ig} target="_blank">
+						<div
+							class="bg-team w-full h-full aspect-square transition-all lg:grayscale group-hover:grayscale-0"
+						>
 							<img
-								class="object-cover aspect-square h-auto w-full transition-all group-hover:scale-125 group-hover:opacity-50"
+								class="stroke-white object-coverh-auto w-full lg:translate-y-5 group-hover:translate-y-0"
 								src={t.photo}
 								alt={t.name}
 							/>
-						</a>
+						</div>
 					</figure>
 					<div class="m-auto grid grid-cols-1 text-center py-5 px-2 gap-3">
 						<p class="opacity-50">{t.role}</p>
 						<h2 class="card-title mx-auto m-auto">{t.name}</h2>
 						<div class="flex justify-center">
-							<div class="grid grid-cols-3 gap-2 w-fit">
-								{#each Array(3) as _, index (index)}
-									<div class="h-5 w-5 rounded-md bg-gray-300"></div>
-								{/each}
+							<div class="grid grid-cols-2 gap-2 w-fit">
+								<a target="_blank" href={t.ig} class="h-6 w-6 rounded-md">
+									<img class="rounded-md" src={Instagram} alt="{t.name}'s' instagram" />
+								</a>
+								<a target="_blank" href={t.linkedin} class="h-6 w-6 rounded-md">
+									<img class="rounded-md" src={Linkedin} alt="{t.name}'s' linkedin" />
+								</a>
 							</div>
 						</div>
 					</div>

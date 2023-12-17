@@ -5,17 +5,17 @@ export default {
 		fontFamily: {
 			inter: ['Inter', 'sans-serif']
 		},
-    transitionDuration: {
-      DEFAULT: '500ms'
-    }
+		transitionDuration: {
+			DEFAULT: '500ms'
+		}
 	},
 	plugins: [require('daisyui'), require('tailwind-scrollbar')({ nocompatible: true })],
 
 	daisyui: {
 		themes: [
 			{
-				climate: {
-					...require('daisyui/src/theming/themes')['light'],
+				clean: {
+					...require('daisyui/src/theming/themes')['forest'],
 					primary: '#4D6C40',
 					'primary-content': '#DBE2D9',
 					secondary: '#BCD7EA',
@@ -26,7 +26,19 @@ export default {
 					'base-200': '#D0D0D0',
 					'base-300': '#B1B1B1',
 					'base-content': '#040404',
-
+					'--rounded-box': '0.5rem',
+					'--rounded-btn': '0.25rem',
+					'--rounded-badge': '1rem',
+					'--animation-btn': '0.25s',
+					'--animation-input': '0.2s',
+					'--btn-focus-scale': '0.95',
+					'--border-btn': '1px',
+					'--tab-border': '1px',
+					'--tab-radius': '0.5rem'
+				},
+				night: {
+					...require('daisyui/src/theming/themes')['forest'],
+					primary: '#4D6C40',
 					'--rounded-box': '0.5rem',
 					'--rounded-btn': '0.25rem',
 					'--rounded-badge': '1rem',
@@ -37,8 +49,7 @@ export default {
 					'--tab-border': '1px',
 					'--tab-radius': '0.5rem'
 				}
-			},
-			'forest'
+			}
 		]
 	}
 };

@@ -1,30 +1,33 @@
 <script lang="ts">
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import BackToTop from '$lib/components/BackToTop.svelte';
 	import Logo from '$lib/icon/logo.png';
 	import { onMount } from 'svelte';
 	import { onNavigate } from '$app/navigation';
-	import { fade } from 'svelte/transition';
 	import '../app.css';
 
 	const navigateAnimation: boolean = true;
+	const navbarHide: boolean = false;
 	let scrollY: number;
 	let hidden: boolean = false;
 
 	onMount(() => {
 		var prevScrollpos = window.scrollY;
 		window.onscroll = function () {
-			var currentScrollPos = window.scrollY;
-			if (prevScrollpos > currentScrollPos) {
-				setTimeout(() => {
-					hidden = false;
-				}, 500);
-			} else {
-				setTimeout(() => {
-					hidden = true;
-				}, 1000);
+			if (navbarHide) {
+				var currentScrollPos = window.scrollY;
+				if (prevScrollpos > currentScrollPos) {
+					setTimeout(() => {
+						hidden = false;
+					}, 0);
+				} else {
+					setTimeout(() => {
+						hidden = true;
+					}, 1000);
+				}
+				prevScrollpos = currentScrollPos;
 			}
-			prevScrollpos = currentScrollPos;
 		};
 	});
 
@@ -49,11 +52,12 @@
 </svelte:head>
 
 <header>
-	<Navbar fixed={scrollY > 50} {hidden} />
+	<Navbar fixed={scrollY >= 50} hidden={hidden && scrollY >= 300} />
 </header>
 
-<main class="min-h-screen" transition:fade>
+<main class="min-h-screen">
 	<slot />
+	<BackToTop show={scrollY >= 500} />
 </main>
 
 <footer>

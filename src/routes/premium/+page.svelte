@@ -64,13 +64,13 @@
 
 <div>
 	<section id="premium">
-		<h1 class="text-primary mb-10">Premium Benefit</h1>
+		<h1 class="text-primary text-center mb-10">Premium Benefit</h1>
 		<div
 			class="mx-10 sm:mx-16 lg:gap-5 gap-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl glow-item-400"
 		>
 			{#each plans as p}
 				<div
-					class="card card-bordered bg-base-100 bg-opacity-60 w-full h-full shadow-md transition-all hover:scale-105"
+					class="card card-bordered bg-base-100 bg-opacity-60 w-full h-full lg:hover:shadow-md transition-all lg:hover:scale-105 select-none"
 				>
 					<figure>
 						<img

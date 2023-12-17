@@ -7,15 +7,10 @@
 	import MockupHome from '$lib/img/mockup-home.png';
 	import MockupCarbonCalculator from '$lib/img/mockup-carbon-calculator.png';
 	import MockupCarbonFootprint from '$lib/img/mockup-carbon-footprint.png';
-	import MockupCarbonMarket from '$lib/img/mockup-carbon-market.png';
+	// import MockupCarbonMarket from '$lib/img/mockup-carbon-market.png';
 	import MockupCarbonProduct from '$lib/img/mockup-carbon-product.png';
-	import MockupCommunity from '$lib/img/mockup-community.png';
+	// import MockupCommunity from '$lib/img/mockup-community.png';
 	import MockupCommunityChat from '$lib/img/mockup-community-chat.png';
-
-	// $: outerWidth = 0;
-	// $: innerWidth = 0;
-	// $: outerHeight = 0;
-	// $: innerHeight = 0;
 
 	const problems = [
 		{
@@ -62,8 +57,6 @@
 		}
 	];
 </script>
-
-<!-- <svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight /> -->
 
 <svelte:head>
 	<title>Climates</title>
@@ -229,13 +222,13 @@
 			<div class="">
 				<Mockup
 					className="lg:justify-end"
-					src={MockupCarbonMarket}
+					src={MockupCarbonProduct}
 					feature="carbon market"
 					mockupScale={0.7}
 					withGlow
 				/>
 				<!-- <div class="hidden lg:flex lg:absolute translate-x-[200px] translate-y-[50px] z-10">
-					<Mockup src={MockupCarbonProduct} feature="carbon product" mockupScale={0.7} />
+					<Mockup src={MockupCarbonMarket} feature="carbon product" mockupScale={0.7} />
 				</div> -->
 			</div>
 		</div>
@@ -246,13 +239,13 @@
 			<div class="">
 				<Mockup
 					className="lg:justify-start"
-					src={MockupCommunity}
+					src={MockupCommunityChat}
 					feature="carbon market"
 					mockupScale={0.7}
 					withGlow
 				/>
 				<!-- <div class="hidden lg:flex lg:absolute translate-x-[200px] translate-y-[50px] z-10">
-					<Mockup src={MockupCommunityChat} feature="carbon product" mockupScale={0.7} />
+					<Mockup src={MockupCommunity} feature="carbon product" mockupScale={0.7} />
 				</div> -->
 			</div>
 			<div class="grid place-items-center order-first lg:order-last lg:pt-[30%]">
