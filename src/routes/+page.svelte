@@ -7,9 +7,7 @@
 	import MockupHome from '$lib/img/mockup-home.png';
 	import MockupCarbonCalculator from '$lib/img/mockup-carbon-calculator.png';
 	import MockupCarbonFootprint from '$lib/img/mockup-carbon-footprint.png';
-	// import MockupCarbonMarket from '$lib/img/mockup-carbon-market.png';
 	import MockupCarbonProduct from '$lib/img/mockup-carbon-product.png';
-	// import MockupCommunity from '$lib/img/mockup-community.png';
 	import MockupCommunityChat from '$lib/img/mockup-community-chat.png';
 
 	const problems = [
@@ -227,9 +225,6 @@
 					mockupScale={0.7}
 					withGlow
 				/>
-				<!-- <div class="hidden lg:flex lg:absolute translate-x-[200px] translate-y-[50px] z-10">
-					<Mockup src={MockupCarbonMarket} feature="carbon product" mockupScale={0.7} />
-				</div> -->
 			</div>
 		</div>
 	</section>
@@ -244,9 +239,6 @@
 					mockupScale={0.7}
 					withGlow
 				/>
-				<!-- <div class="hidden lg:flex lg:absolute translate-x-[200px] translate-y-[50px] z-10">
-					<Mockup src={MockupCommunity} feature="carbon product" mockupScale={0.7} />
-				</div> -->
 			</div>
 			<div class="grid place-items-center order-first lg:order-last lg:pt-[30%]">
 				<div class="text-center lg:text-end">

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { clickoutside } from '@svelte-put/clickoutside';
 	import { fade, fly } from 'svelte/transition';
 	import { page } from '$app/stores';
 	import Logo from '$lib/icon/logo.png';
@@ -27,11 +26,7 @@
 		closeHamburger();
 		closeDropdown();
 	}
-
-	$: innerWidth = 0;
 </script>
-
-<svelte:window bind:innerWidth />
 
 {#if dropdown}
 	<button
@@ -49,7 +44,6 @@
 		!dropdown &&
 		'-translate-y-full'} {hamburger && 'h-full lg:h-auto'}"
 >
-
 	<nav
 		class="navbar px-5 lg:px-10 {!hamburger ? 'backdrop-blur-md' : 'bg-base-100'} {!fixed &&
 			'lg:py-2'}"
@@ -123,38 +117,6 @@
 						class="w-[70%] h-auto"
 					/>
 				</button>
-
-				{#if false}
-					<div
-						transition:fade={{ duration: 100 }}
-						class="bg-base-100 z-50 w-56 p-3 absolute menu shadow-lg rounded-box right-4 top-[120%] font-bold"
-					>
-						<ul>
-							<li>
-								<a href="/" class="{$page.url.pathname === '/' && 'active'} "
-									>Home <span>
-										<Icon icon="charm:chevron-right" />
-									</span></a
-								>
-							</li>
-							<li>
-								<a href="/about" class="{$page.url.pathname === '/about' && 'active'} "
-									>About Us <span>
-										<Icon icon="charm:chevron-right" />
-									</span></a
-								>
-							</li>
-							<li>
-								<a href="/premium" class="{$page.url.pathname === '/premium' && 'active'} "
-									>Premium <span>
-										<Icon icon="charm:chevron-right" />
-									</span></a
-								>
-							</li>
-						</ul>
-					</div>
-				{/if}
-
 			</div>
 			<div class="gap-3 hidden lg:flex">
 				<button class="btn btn-primary btn-ghost transition-all {fixed && 'btn-sm'}">Login</button>
@@ -233,14 +195,16 @@
 			</ul>
 
 			<div class="grid gap-2 p-4 absolute w-full bottom-20 left-0 right-0">
-        <a href="https://github.com/wisnuwirayuda15/climates-landing-page" target="_blank" class="w-full h-full">
-          <Icon icon="mdi:github" width="30" class="w-full text-primary" />
-        </a>
+				<a
+					href="https://github.com/wisnuwirayuda15/climates-landing-page"
+					target="_blank"
+					class="w-full h-full"
+				>
+					<Icon icon="mdi:github" width="30" class="w-full text-primary" />
+				</a>
 				<button class="btn btn-primary btn-outline btn-block">Login</button>
 				<button class="btn btn-primary btn-block">Register</button>
 			</div>
 		</div>
 	{/if}
 </div>
-
-<!-- <div class="pt-20"></div> -->

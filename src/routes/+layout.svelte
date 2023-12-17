@@ -8,14 +8,14 @@
 	import '../app.css';
 
 	const navigateAnimation: boolean = true;
-	const navbarHide: boolean = false;
+	const navbarAutoHide: boolean = false;
 	let scrollY: number;
 	let hidden: boolean = false;
 
 	onMount(() => {
 		var prevScrollpos = window.scrollY;
 		window.onscroll = function () {
-			if (navbarHide) {
+			if (navbarAutoHide) {
 				var currentScrollPos = window.scrollY;
 				if (prevScrollpos > currentScrollPos) {
 					setTimeout(() => {
@@ -48,6 +48,7 @@
 <svelte:window bind:scrollY />
 
 <svelte:head>
+  <meta name="twitter:image" content={Logo} />
 	<link rel="icon" href={Logo} />
 </svelte:head>
 
