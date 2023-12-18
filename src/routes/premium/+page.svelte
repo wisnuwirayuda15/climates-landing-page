@@ -4,6 +4,8 @@
 	import Hero from '$lib/img/premium-hero.jpg';
 	import Champion from '$lib/img/premium-champion.jpg';
 
+	let hover: boolean = false;
+
 	const idr = (number: number): string => {
 		return new Intl.NumberFormat('en-US', {
 			style: 'currency',
@@ -66,11 +68,14 @@
 	<section id="premium">
 		<h1 class="text-primary text-center mb-10">Premium Benefit</h1>
 		<div
+			on:mouseenter={() => (hover = true)}
+			on:mouseleave={() => (hover = false)}
 			class="mx-10 sm:mx-16 lg:gap-5 gap-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl glow-item-400"
 		>
 			{#each plans as p}
 				<div
-					class="card card-bordered bg-base-100 bg-opacity-60 w-full h-full lg:hover:shadow-md transition-all lg:hover:scale-105 select-none"
+					class="card card-bordered bg-base-100 bg-opacity-60 w-full h-full lg:hover:shadow-md transition-all lg:hover:scale-105 select-none {hover &&
+						'lg:hover:opacity-100 lg:opacity-50'}"
 				>
 					<figure>
 						<img
