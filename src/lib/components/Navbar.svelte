@@ -130,7 +130,7 @@
 			transition:fly={{ x: '100%' }}
 			class="lg:hidden absolute min-h-full w-full bg-base-100 p-2"
 		>
-			<ul class="menu menu-lg h-min font-bold">
+			<ul class="menu sm:menu-lg h-min font-bold">
 				<li class="active">
 					{#if $page.url.pathname === '/'}
 						<button class="flex justify-between active" on:click={toggleDropdown}
@@ -194,7 +194,7 @@
 				</li>
 			</ul>
 
-			<div class="grid gap-2 p-4 absolute w-full bottom-20 left-0 right-0">
+			<div class="grid gap-2 p-4 w-full fixed bottom-0 left-0 right-0">
 				<a
 					href="https://github.com/wisnuwirayuda15/climates-landing-page"
 					target="_blank"
@@ -202,8 +202,8 @@
 				>
 					<Icon icon="mdi:github" width="30" class="w-full text-primary" />
 				</a>
-				<button class="btn btn-primary btn-outline btn-block">Login</button>
-				<button class="btn btn-primary btn-block">Register</button>
+				<button class="btn btn-sm sm:btn-md btn-primary btn-outline btn-block">Login</button>
+				<button class="btn btn-sm sm:btn-md btn-primary btn-block">Register</button>
 			</div>
 		</div>
 	{/if}

@@ -4,8 +4,8 @@
 	import Hero from '$lib/img/premium-hero.jpg';
 	import Champion from '$lib/img/premium-champion.jpg';
 
-	const rupiah = (number: number) => {
-		return new Intl.NumberFormat('id-ID', {
+	const idr = (number: number): string => {
+		return new Intl.NumberFormat('en-US', {
 			style: 'currency',
 			currency: 'IDR'
 		}).format(number);
@@ -15,7 +15,7 @@
 		{
 			name: 'Eco Starter',
 			cover: Eco,
-			price: rupiah(70000),
+			price: idr(70000),
 			features: [
 				'Personal carbon footprint monitoring.',
 				'Access to sustainable living tips.',
@@ -25,7 +25,7 @@
 		{
 			name: 'Green Enthusiast',
 			cover: Green,
-			price: rupiah(150000),
+			price: idr(150000),
 			features: [
 				'All features from the Eco Starter package.',
 				'Comparison of carbon footprints with other users.',
@@ -36,7 +36,7 @@
 		{
 			name: 'Climate Hero',
 			cover: Hero,
-			price: rupiah(200000),
+			price: idr(200000),
 			features: [
 				'All features from the Green Enthusiast package.',
 				'In-depth carbon footprint analysis and custom recommendations.',
@@ -47,7 +47,7 @@
 		{
 			name: 'Carbon Champion',
 			cover: Champion,
-			price: rupiah(300000),
+			price: idr(300000),
 			features: [
 				'All features from the Climate Hero package.',
 				'Detailed tracking of carbon for travel and lifestyle.',
