@@ -100,10 +100,10 @@
 					{/if}
 				</li>
 				<li>
-					<a href="/about" class="{$page.url.pathname === '/about' && 'active'} ">About Us</a>
+					<a href="/about" class="{$page.url.pathname === '/about' ? 'active' : undefined}">About Us</a>
 				</li>
 				<li>
-					<a href="/premium" class="{$page.url.pathname === '/premium' && 'active'} ">Premium</a>
+					<a href="/premium" class="{$page.url.pathname === '/premium' ? 'active' : undefined}">Premium</a>
 				</li>
 			</ul>
 		</div>

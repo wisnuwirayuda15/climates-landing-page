@@ -7,7 +7,7 @@
 	import { onNavigate } from '$app/navigation';
 	import '../app.css';
 
-	const navigateAnimation: boolean = true;
+	const navigateAnimation: boolean = false;
 	const navbarAutoHide: boolean = false;
 	let scrollY: number;
 	let hidden: boolean = false;
@@ -48,7 +48,7 @@
 <svelte:window bind:scrollY />
 
 <svelte:head>
-  <meta name="twitter:image" content={Logo} />
+	<meta name="twitter:image" content={Logo} />
 	<link rel="icon" href={Logo} />
 </svelte:head>
 
